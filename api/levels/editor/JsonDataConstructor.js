@@ -18,16 +18,10 @@ function jsonPush(json, toBePushed, offset, simple, split = ",") {
 }
 
 function init(json) {
-    return new Promise(function (resolve, reject) {
-        if (json.k34) {
-            k34(json.k34).then(function (data) {
-                json.k34 = data;
-                resolve(k4(json));
-            });
-        } else {
-            resolve(k4(json));
-        }
-    });
+    if (json.k34) {
+        json.k34 = gzUnzip(base64(json.k34)).toString();;
+    }
+    return JSON.stringify(k4(json), null, 2);
 }
 
 function main(json, data) {
@@ -72,26 +66,16 @@ function main(json, data) {
 }
 
 function k4(json) {
-    return new Promise(function (resolve, reject) {
-        if (!json.k4.startsWith("H4sIAAAAAAAA")) {
-            resolve(JSON.stringify(main(json, json.k4), null, 2));
-        } else {
-            gzUnzip(base64(json.k4)).then(function (data) {
-                resolve(JSON.stringify(main(json, data.toString()), null, 2));
-            }).catch(function (error) {
-                json.k4 = "Invalid level string";
-                resolve(JSON.stringify(json, null, 2));
-            });
+    if (!json.k4.startsWith("H4sIAAAAAAAA")) {
+        json = main(json, json.k4);
+    } else {
+        try {
+            json = main(json, gzUnzip(base64(json.k4)).toString());
+        } catch(error) {
+            json.k4 = "Invalid level string";
         }
-    });
-}
-
-function k34(k34) {
-    return new Promise(function (resolve, reject) {
-        gzUnzip(base64(k34)).then(function (data) {
-            resolve(data.toString());
-        });
-    });
+    }
+    return json;
 }
 
 module.exports = init;
