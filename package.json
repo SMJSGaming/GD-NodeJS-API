@@ -12,8 +12,6 @@
     "express": "^4.17.1",
     "pako": "^1.0.10",
     "query-string": "^6.9.0",
-    "request": "^2.88.0",
-    "text-encoding": "^0.7.0",
-    "xor-crypt": "^1.1.1"
+    "request": "^2.88.0"
   }
 }
