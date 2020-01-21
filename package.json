@@ -1,0 +1,19 @@
+{
+  "name": "gd-nodejs-api",
+  "version": "0.1.0",
+  "description": "An API for all kinds of Geometry Dash features as continuation on the GDDocs by cos8o and me.",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "author": "SMJS",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pako": "^1.0.10",
+    "query-string": "^6.9.0",
+    "request": "^2.88.0",
+    "text-encoding": "^0.7.0",
+    "xor-crypt": "^1.1.1"
+  }
+}
