@@ -66,14 +66,14 @@ function main(json, data) {
 }
 
 function k4(json) {
-    if (!json.k4.startsWith("H4sIAAAAAAAA")) {
-        json = main(json, json.k4);
-    } else {
+    if (json.k4.startsWith("H4sIAAAAAAAA")) {
         try {
             json = main(json, gzUnzip(base64(json.k4)).toString());
         } catch(error) {
             json.k4 = "Invalid level string";
         }
+    } else {
+        json = main(json, json.k4);
     }
     return json;
 }
