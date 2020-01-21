@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)‌‌ ‌
 [![](https://img.shields.io/badge/Version-0.1.0-brightgreen.svg)](package.json#L3) ‌
-![](https://img.shields.io/badge/Progress-15%-blue.svg) ‌
+[![](https://img.shields.io/badge/Progress-15%-blue.svg)](.) ‌
 [![](https://img.shields.io/badge/Node_Version-6.13.1-026E00.svg?logo=Node.js)](https://nodejs.org/dist/v6.13.1/node-v6.13.1-x64.msi)‌‌ ‌
 [![](https://img.shields.io/badge/Donations-Paypal-1546A0.svg?logo=PayPal)](https://www.paypal.me/smjsgaming)‌‌ ‌
 [![](https://img.shields.io/badge/Discord-Support-7289DA.svg?logo=Discord)](https://discord.gg/RRgWMyt)‌‌ ‌
