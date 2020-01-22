@@ -9,18 +9,18 @@ const postreq = require('../utils/request/postreq');
 const mainCrypto = require('../utils/robCrypto/mainCrypto');
 
 module.exports = {
-    "values": {
+    values: {
         songs,
         properties,
         valuenames
     },
-    "functions": {
+    functions: {
         arrayUtils
     },
-    "request": {
+    request: {
         postreq
     },
-    "robCrypto": {
+    robCrypto: {
         mainCrypto
     }
 };
