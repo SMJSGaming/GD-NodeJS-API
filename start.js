@@ -5,11 +5,11 @@ const bodyParser = require('body-parser');
 const apihead = require('./headers/API');
 
 // Giving the launch data and start listening
-app.listen(90, function() {
+app.listen(80, function() {
     // I know that this can all go into one log but I prefer to log per line to keep it clean
     console.log("\x1b[34mApp started\x1b[0m");
     console.log("\x1b[33mModules loaded:\n" + JSON.stringify(dependencies, null, 2) + "\x1b[0m")
-    console.log("\x1b[32mserver address: http://localhost:90\x1b[0m");
+    console.log("\x1b[32mserver address: http://localhost:80\x1b[0m");
 });
 
 // Setting the max data limit (you really don't need more than this)

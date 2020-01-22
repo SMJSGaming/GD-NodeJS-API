@@ -11,10 +11,10 @@ module.exports = {
         return Buffer.from(base64String.replace(/-/g, "+").replace(/_/g, "/"), 'base64');
     },
     gzUnzip: function(gzipString) {
-            try {
-                return new TextDecoder("utf-8").decode(pako.inflate(gzipString));
-            } catch(error) {
-                throw error;
-            }
+        try {
+            return new TextDecoder("utf-8").decode(pako.inflate(gzipString));
+        } catch(error) {
+            throw error;
+        }
     }
 }
