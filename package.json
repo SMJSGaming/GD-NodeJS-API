@@ -1,6 +1,6 @@
 {
   "name": "gd-nodejs-api",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "An API for all kinds of Geometry Dash features as continuation on the GDDocs by cos8o and me.",
   "scripts": {
     "start": "node start.js"

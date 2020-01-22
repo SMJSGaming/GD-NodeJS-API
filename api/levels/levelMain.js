@@ -1,13 +1,11 @@
 const fs = require('fs');
-const {keys, XOR, base64, gzUnzip} = require('../../utils/robCrypto/mainCrypto');
 const base = require('./save/baseLevelInfoData');
 const parser = require('./save/menuDataParser');
 const constructor = require('./menu/menuConstructor');
 const JsonDataConst = require('./editor/JsonDataConstructor');
-const dataLoadPage = require('./dragAndDropLoad');
+const {keys, XOR, base64, gzUnzip} = require('../../headers/utils').robCrypto.mainCrypto;
 
 function init(app) {
-    dataLoadPage(app);
     app.post('/api/level', function (req, res) {
         if (req.body.data) {
             fs.readFile('./frontend/level/base.html', 'utf8', function (err, contents) {

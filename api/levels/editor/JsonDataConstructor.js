@@ -1,21 +1,6 @@
-const {base64, gzUnzip} = require('../../../utils/robCrypto/mainCrypto');
-
-function jsonPush(json, toBePushed, offset, simple, split = ",") {
-    if (simple) {
-        for (let i = offset; i < toBePushed.length; i += 2) {
-            json[toBePushed[i]] = toBePushed[i+1];
-        }
-    } else {
-        for (let i = offset; i < toBePushed.length; i++) {
-            toBePushed[i] = toBePushed[i].split(split);
-            json[i] = {};
-            for (let j = 0; j < toBePushed[i].length; j += 2) {
-                json[i][toBePushed[i][j]] = toBePushed[i][j+1];
-            }
-        }
-    }
-    return json;
-}
+const utils = require('../../../headers/utils');
+const {gzUnzip, base64} = utils.robCrypto.mainCrypto;
+const {jsonPush} = utils.functions.arrayUtils;
 
 function init(json) {
     if (json.k34) {

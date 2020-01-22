@@ -1,4 +1,4 @@
-const songs = require("../../../utils/default values/songs");
+const songs = require('../../../headers/utils').values.songs;
 
 let baseHTML =
     "<div class=\"sideLevelSelect\">" +

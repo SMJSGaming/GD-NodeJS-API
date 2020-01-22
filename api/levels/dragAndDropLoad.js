@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 
 function init(app) {
     app.get(['/api/level', '/api/level/:num', '/api/levelraw'], function (req, res) {
