@@ -18,6 +18,7 @@ An API for all kinds of Geometry Dash features as continuation on the [GDDocs](h
 * CCLocalLevels.dat save file to json data for a specific level index
 * A raw CCLocalLevels.dat json translation API
 * Names for value documentation
+* A base for the comple GD documentations
 
 
 ## URLS
@@ -30,6 +31,7 @@ An API for all kinds of Geometry Dash features as continuation on the [GDDocs](h
 * `/api/endpoint/` The main endpoint API page
 * `/api/endpoint/:type/:values?/` The selective endpoint API
 * `/api/valueNames/:root?/` The list for every GD format value name with route being separated by `-`
+* `/api/docs/` The base of the new documentations
 
 
 ## How to install
