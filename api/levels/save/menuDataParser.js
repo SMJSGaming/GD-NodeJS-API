@@ -1,8 +1,8 @@
 function main(dataArray) {
-    let outData = {};
+    let outData = [];
     let insubdir = -1;
     let tempobjectkey = "";
-    for (let i = 0; i < dataArray.length; i++) {
+    for (let i in dataArray) {
         dataArray[i] = dataArray[i].split("><");
         outData[i] = {};
         for (let j = 1; j < dataArray[i].length; j += 2) {

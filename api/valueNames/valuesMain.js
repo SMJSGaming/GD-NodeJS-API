@@ -1,8 +1,8 @@
-const values = require('./../../utils/default values/valueForName');
-const arrayUtils = require('./../../utils/functions/arrayUtils');
+const values = require.main.require('./utils/default values/valueForName');
+const arrayUtils = require.main.require('./utils/functions/arrayUtils');
 
 function init(app) {
-    app.get('/api/valueNames/:root?', function(req, res) {
+    app.get("/api/valueNames/:root?", function(req, res) {
         let out = values;
         let checkData = {};
         if (req.params.root) {
@@ -16,7 +16,7 @@ function init(app) {
                 }
             }
         }
-        res.status(200).type('json').send(JSON.stringify(out, null, 2));
+        res.status(200).type("json").send(JSON.stringify(out, null, 2));
     });
 }
 

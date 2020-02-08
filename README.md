@@ -1,14 +1,14 @@
 # GD NodeJS API
 
 [![](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)‌‌ ‌
-[![](https://img.shields.io/badge/Version-0.1.5-brightgreen.svg)](package.json#L3) ‌
+[![](https://img.shields.io/badge/Version-0.1.5-brightgreen.svg)](https://github.com/SMJSGaming/GD-NodeJS-API/blob/master/package.json#L3) ‌
 ![](https://img.shields.io/badge/Progress-18%25-blue.svg) ‌
 [![](https://img.shields.io/badge/NPM_Version-6.13.6-e21515.svg?logo=NPM)](https://www.npmjs.com/)‌‌ ‌
 [![](https://img.shields.io/badge/Node_Version-13.7.0-026E00.svg?logo=Node.js)](https://nodejs.org/en/)‌‌ ‌
 [![](https://img.shields.io/badge/Donations-Paypal-1546A0.svg?logo=PayPal)](https://www.paypal.me/smjsgaming)‌‌ ‌
 [![](https://img.shields.io/badge/Discord-Support-7289DA.svg?logo=Discord)](https://discord.gg/RRgWMyt)‌‌ ‌
 
-An API for all kinds of Geometry Dash features as continuation on the [GDDocs](https://github.com/SMJSGaming/GDDocs) by cos8o and me.
+An API for all kinds of Geometry Dash features as continuation on the [GDDocs](https://github.com/SMJSGaming/GDDocs) by [Cos8o](https://github.com/Cos8o) and me.
 
 
 ## Features
@@ -28,7 +28,7 @@ An API for all kinds of Geometry Dash features as continuation on the [GDDocs](h
 * `/api/level/:levelIndex/` The selective level API page
 * `/api/endpoint/` The main endpoint API page
 * `/api/endpoint/:type/:values?/` The selective endpoint API
-* `/api/valueNames/:root?` The list for every GD format value name with route being separated by `-`
+* `/api/valueNames/:root?/` The list for every GD format value name with route being separated by `-`
 
 
 ## How to install

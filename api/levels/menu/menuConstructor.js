@@ -1,21 +1,19 @@
-const songs = require('../../../headers/utils').values.songs;
-
-let baseHTML =
-    "<div class=\"sideLevelSelect\">" +
-    "<h3>_k2_</h3>" +
-    "<form action=\"/api/level/_i_\" method=\"post\">" +
-    "<button type=\"submit\" name=\"data\" class=\"view right\" value='_all_'>View</button>" +
-    "</form>" +
-    "<div class=\"progress\">" +
-    "<div class=\"wrapper\">" +
-    "<div class=\"inner\" style=\"width: calc(_k19_% + 5px); z-index: _indexk19_;\"></div>" +
-    "<div class=\"inner practice\" style=\"width: calc(_k20_% + 5px); z-index: _indexk20_;\"></div>" +
-    "</div>" +
-    "</div>" +
-    "<small class=\"data\">Song ID: _k45_</small>" +
-    "<small class=\"data2\">Time spent: _k80_</small>" +
-    "<small class=\"data2 right\">Objects: _k48_</small>" +
-    "</div>";
+const songs = require.main.require('./utils/default values/songs');
+const baseHTML = `<div class="sideLevelSelect">
+    <h3>_k2_</h3>
+    <form action="/api/level/_i_" method="post">
+        <button type="submit" name="data" class="view right" value='_all_'>View</button>
+    </form>
+    <div class="progress">
+        <div class="wrapper">
+            <div class="inner" style="width: calc(_k19_% + 5px); z-index: _indexk19_;"></div>
+            <div class="inner practice" style="width: calc(_k20_% + 5px); z-index: _indexk20_;"></div>
+        </div>
+    </div>
+    <small class="data">Song ID: _k45_</small>
+    <small class="data2">Time spent: _k80_</small>
+    <small class="data2 right">Objects: _k48_</small>
+</div>`;
 
 function main(jsonLevel) {
     let out = "";
@@ -30,9 +28,6 @@ function main(jsonLevel) {
             // View Button inserting all needed data
             if (tempHTML[j] == "all") {
                 dataCheck = JSON.stringify(jsonLevel[i]);
-            } else if (tempHTML[j] == 'i') {
-                // Current level
-                dataCheck = i;
             } else {
                 // Default values
                 if (!dataCheck) {
@@ -44,7 +39,7 @@ function main(jsonLevel) {
                             dataCheck = "Eeeeh, well then";
                             break;
                         case "k45":
-                            dataCheck = songs(jsonLevel[i].k8);
+                            dataCheck = songs[jsonLevel[i].k8] || "Stereo Madness";
                             break;
                         default:
                             dataCheck = 0;
@@ -68,18 +63,17 @@ function main(jsonLevel) {
                 // Because floor refused to work
                 dataCheck = dataCheck.toString().split(".");
                 if (dataCheck[1]) {
-                    dataCheck = dataCheck[0] + '.' + dataCheck[1].substring(0, 2);
+                    dataCheck = `${dataCheck[0]}.${dataCheck[1].substring(0, 2)}`;
                 } else {
                     dataCheck = dataCheck[0];
                 }
-                dataCheck += ' ' + temptime;
+                dataCheck += ` ${temptime}`;
             }
 
-            // Set progress bar index and length
+            // Orders the progress bars based on which has the least amount of process and formats them
             if (tempHTML[j] == "k19" || tempHTML[j] == "k20") {
-                if (dataCheck == "100") {
+                if (dataCheck == "100")
                     dataCheck = "5px + 100";
-                }
                 tempHTML[j] = dataCheck;
                 j += 2;
                 if (jsonLevel[i]["k19"] < jsonLevel[i]["k20"]) {

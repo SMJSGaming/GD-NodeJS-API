@@ -1,20 +1,19 @@
-const utils = require('../../../headers/utils');
-const {gzUnzip, base64} = utils.robCrypto.mainCrypto;
-const {jsonPush} = utils.functions.arrayUtils;
+const {gzUnzip, base64} = require.main.require('./utils/robCrypto/mainCrypto');
+const {jsonPush} = require.main.require('./utils/functions/arrayUtils');
 
 function init(json) {
-    if (json.k34) {
-        json.k34 = gzUnzip(base64(json.k34)).toString();;
-    }
-    return JSON.stringify(k4(json), null, 2);
+    if (json.k34)
+        json.k34 = gzUnzip(base64(json.k34)).toString();
+    k4(json);
 }
 
 function main(json, data) {
-    // k4
     // Splitting color and object data
     let tempk = data.split("|,");
     let tempjson = {};
     let tempvalue;
+    
+    // k4
     // Splitting global variables and values
     tempk[0] = tempk[0].split(",");
     // Splitting the colors
@@ -24,10 +23,9 @@ function main(json, data) {
         for (let i in tempk[0][1]) {
             // Splitting the color data
             tempvalue = tempk[0][1][i].split("_");
-            tempjson[tempk[0][0]]["color" + tempvalue[15]] = {};
-            for (let j = 0; j < tempvalue.length; j += 2) {
-                tempjson[tempk[0][0]]["color" + tempvalue[15]][tempvalue[j]] = tempvalue[j+1];
-            }
+            tempjson[tempk[0][0]][`color${tempvalue[15]}`] = {};
+            for (let j = 0; j < tempvalue.length; j += 2)
+                tempjson[tempk[0][0]][`color${tempvalue[15]}`][tempvalue[j]] = tempvalue[j+1];
         }
     }
     if (tempk[1]) {
@@ -43,24 +41,21 @@ function main(json, data) {
     if (json.k34) {
         tempk = json.k34.substring(0, json.k34.length - 1).split(";");
         json.k34 = {};
-        for (let i in tempk) {
+        for (let i in tempk)
             json.k34[i] = tempk[i];
-        }
     }
-    return json;
 }
 
 function k4(json) {
     if (json.k4.startsWith("H4sIAAAAAAAA")) {
         try {
-            json = main(json, gzUnzip(base64(json.k4)).toString());
+            main(json, gzUnzip(base64(json.k4)).toString());
         } catch(error) {
             json.k4 = "Invalid level string";
         }
     } else {
-        json = main(json, json.k4);
+        main(json, json.k4);
     }
-    return json;
 }
 
 module.exports = init;
