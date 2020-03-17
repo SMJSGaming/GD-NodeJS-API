@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #DCDDDE;
+    background-color: #23232B;
+    font-family: Gill Sans, sans-serif;
+}
+
+p {
+    margin: 4px 0 4px 0;
+}
+
+b {
+    font-size: 20px;
+}
+
+#body {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    position: absolute;
+}
+
+#browser {
+    width: calc(100% - 10px);
+    padding: 30px;
+    text-align: left;
+}
+
+#browserOut .tr {
+    cursor: pointer;
+}
+
+#browserOut .tr, #browserOut .ntr {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
+#browserOut .browserVersions {
+    display: none;
+}
+
+#chartContainer {
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    bottom: 5px;
+    padding: 10px;
+    position: absolute;
+}
+
+#chartTitle {
+    left: 20px;
+    bottom: 40vh;
+    position: absolute;
+}
+
+.info {
+    width: 32%;
+    padding: 20px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.info p, .info small {
+    word-wrap: break-word;
+}
+
+.progress {
+    width: 100%;
+    height: 30px;
+    background-color: #40404D;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress span {
+    height: 30px;
+    top: 0;
+    left: 0;
+    background-color: #418E51;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.progress p {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+}
+
+@media only screen and (max-height: 350px) {
+    #chartContainer {
+        display: none;
+    }
+    #chartTitle {
+        display: none;
+    }
+}

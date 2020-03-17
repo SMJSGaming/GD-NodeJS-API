@@ -1,0 +1,44 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/css/analytics.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+        <script>
+            const interval = "%REFRESH%";
+            const timeTestRoundOn = "%ROUND%";
+            const legendOptions = {
+                labels: {
+                    fontColor: "#DCDDDE"
+                }
+                "%CLICK%"
+            };
+        </script>
+        <script defer src="/scripts/analytics.js"></script>
+    </head>
+    <body>
+        <div id="body">
+            <div class="info" id="memory">
+                <b>Memory</b>
+                <div id="memoryOut"></div>
+            </div>
+            <div class="info" id="health">
+                <b>Health</b>
+                <br>
+                <small>Server health calculated by using a max amount of errors per 100 visitors.</small>
+                <br><br>
+                <span id="healthOut"></span>
+            </div>
+            <div class="info" id="extra">
+                <b>Extra</b>
+                <span id="extraOut"></span>
+            </div>
+            <div id="browser">
+                <h2 onclick="browser()" id="browserTitle">Visits per browser</h2>
+                <span id="browserOut"></span>
+            </div>
+        </div>
+        <b id="chartTitle">Response time in milliseconds</b>
+        <div id="chartContainer">
+            <canvas id="chart"></canvas>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "settings": {
+        "logging": {
+            "errorLogging": true
+        },
+        "analytics": {
+            "allowChartInteraction": true,
+            "showBrowserVisits": true
+        },
+        "endpoints": {
+            "enableGdEndpointsEndpoint": true,
+            "enableSavesEndpoint": true,
+            "enableDocumentationsEndpoint": true,
+            "enableValueNamesEndpoint": true,
+            "enableAnalyticsEndpoint": true
+        },
+        "expressWebServer": true
+    },
+    "values": {
+        "webServer": {
+            "port": 80
+        },
+        "analytics": {
+            "refreshRateMs": 10000,
+            "chartRoundOn": 50,
+            "maxErrorsPer100Visits": 10
+        },
+        "endpoints": {
+            "targetServer": "boomlings.com"
+        }
+    }
+}

@@ -1,18 +1,18 @@
 {
   "name": "gd-nodejs-api",
-  "version": "0.2.0",
-  "description": "A Web API for all kinds of Geometry Dash features as continuation on the GDDocs by cos8o and SMJS.",
+  "version": "0.3.0",
+  "description": "A NodeJS Geometry Dash API meant to purpose as one of the easiest to extend, update and use APIs in the game",
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js run",
+    "test": "node start.js test"
   },
   "author": "SMJS",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "pako": "^1.0.10",
-    "query-string": "^6.9.0",
-    "request": "^2.88.0",
+    "express-useragent": "^1.0.13",
+    "pako": "^1.0.11",
     "showdown": "^1.9.1"
   }
 }

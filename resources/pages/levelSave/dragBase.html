@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/levelsDrag.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script defer src="/scripts/handleData.js"></script>
+    </head>
+    <body>
+        <div id="mainHead">
+            <h1>File required</h1>
+            <p>To preform this action the API needs your CCLocalLevels.dat file. Things to note:</p>
+            <ul>
+                <li>The max file size allowed is 50Mb</li>
+                <li>Files bigger than 4Mb can take a while to decrypt</li>
+            </ul>
+        </div>
+        <div id="dropbox" class="Files for days" ondrop="fileDropped(event);" ondragover="event.preventDefault();">
+            <div class="innerline">
+                <img class="item picture" src="/images/Upload.png" alt="">
+                <b class="item text">Upload your CCLocalLevels.dat file here</b>
+            </div>
+            <input type="file" accept=".dat" id="file_upload">
+        </div>
+        <h3 id="error"></h3>
+    </body>
+</html>
