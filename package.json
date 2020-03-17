@@ -1,6 +1,6 @@
 {
   "name": "gd-nodejs-api",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A NodeJS Geometry Dash API meant to purpose as one of the easiest to extend, update and use APIs in the game",
   "scripts": {
     "start": "node start.js run",
