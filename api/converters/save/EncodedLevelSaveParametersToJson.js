@@ -63,17 +63,19 @@ module.exports = class EncodedLevelSaveParametersToJson {
      * @param {Object} level 
      */
     k4(level) {
-        if (level.k4.startsWith("H4sIAAAAAAAA")) {
-            try {
-                EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(
-                    level, EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.gzUnzip(
-                        EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.base64(level.k4)).toString());
-            } catch(error) {
-                level.k4 = "Invalid level string";
-                throw error;
+        if (level.k4) {
+            if (level.k4.startsWith("H4sIAAAAAAAA")) {
+                try {
+                    EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(
+                        level, EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.gzUnzip(
+                            EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.base64(level.k4)).toString());
+                } catch(error) {
+                    level.k4 = "Invalid level string";
+                    throw error;
+                }
+            } else {
+                EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(level, level.k4);
             }
-        } else {
-            EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(level, level.k4);
         }
     }
     
