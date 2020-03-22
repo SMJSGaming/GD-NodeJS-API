@@ -22,7 +22,7 @@ Unacceptable behavior from any user including: sponsors, contributors, average u
 
 Anyone asked to stop unacceptable behavior is expected to comply immediately.  
 
-If a users ignores the warning he or she will be banned from the project and if deemed necessary can be taken to court.
+If a user ignores the warning they will be banned from the project and if deemed necessary can be taken to court.
 
 ## 5. Reporting Guidelines
 If you notice any user violating the Code of Conduct you are expected to address this to [SMJS](https://github.com/SMJSGaming) with proof.
