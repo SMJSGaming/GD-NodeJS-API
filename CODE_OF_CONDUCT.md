@@ -30,7 +30,7 @@ If you notice any user violating the Code of Conduct you are expected to address
 ## 6. Addressing Grievances
 If you think you have been falsely accused of violating the Code of Conduct you should notify [SMJS](https://github.com/SMJSGaming) with info about the accusation and your reason why you think it's false.
 
-## 7. Contact info
+## 7. Contact Info
 In case you need to contact the owner of the API, do that via:
 
 * Discord: SMJS#3044
