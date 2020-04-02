@@ -1,0 +1,27 @@
+{
+    "AllSongs": {
+        "short": "A command to request all songs\r",
+        "long": "A command giving data about all songs of a newgrounds user\r\n",
+        "args": "{prefix}AllSongs Artist"
+    },
+    "Analytics": {
+        "short": "A command giving all the analytics",
+        "long": "A command giving analytics about the API and bot about:\nresponse times,\nuptime\nand server health\n",
+        "args": "{prefix}Analytics "
+    },
+    "Endpoint": {
+        "short": "A command to request a gd endpoint",
+        "long": "A command giving the parsed JSON data from a gd endpoint. These endpoints are:\nuser,\nuserList,\ncomments,\naccountComments,\ncommentHistory,\nmaps,\ngauntlets,\nsong,\nleaderBoard,\nlevel,\ndaily,\nweekly\n",
+        "args": "{prefix}Endpoint Type ?Values[]"
+    },
+    "SelectiveSong": {
+        "short": "A command to get info from a song\r",
+        "long": "A command giving info about a NewGrounds song\r\n",
+        "args": "{prefix}SelectiveSong SongID"
+    },
+    "ValueName": {
+        "short": "A command to get value translations\r",
+        "long": "A command giving a lot of GD value translations. `?` represents unknown\r\n",
+        "args": "{prefix}ValueName ?Navigation[]"
+    }
+}

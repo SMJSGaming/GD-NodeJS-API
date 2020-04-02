@@ -2,14 +2,14 @@
  * @class
  * @public
  * @author SMJS
- * @name LevelDataToJson
- * @typedef {Object} LevelDataToJson
+ * @name LevelDataParser
+ * @typedef {Object} LevelDataParser
  */
-module.exports = class LevelDataToJson {
+module.exports = class LevelDataParser {
 
     /**
      * @public
-     * @type {LevelDataToJson}
+     * @type {LevelDataParser}
      * @name INSTANCE
      */
     static INSTANCE;
@@ -19,13 +19,13 @@ module.exports = class LevelDataToJson {
      * @since 0.3.0
      * @version 0.1.0
      * @method constructor
-     * @summary The class constructor @see LevelDataToJson
+     * @summary The class constructor @see LevelDataParser
      */
     constructor() {
-        if (!LevelDataToJson.INSTANCE) {
-            LevelDataToJson.INSTANCE = this;
+        if (!LevelDataParser.INSTANCE) {
+            LevelDataParser.INSTANCE = this;
         }
-        return LevelDataToJson.INSTANCE;
+        return LevelDataParser.INSTANCE;
     }
 
     /**
@@ -48,8 +48,8 @@ module.exports = class LevelDataToJson {
         tempArray[0][1] = tempArray[0][1].split("|");
         tempJson[tempArray[0][0]] = {};
 
-        LevelDataToJson.INSTANCE.color(tempJson[tempArray[0][0]], tempArray[0]);
-        LevelDataToJson.INSTANCE.data(tempJson, tempArray[1]);
+        LevelDataParser.INSTANCE.color(tempJson[tempArray[0][0]], tempArray[0]);
+        LevelDataParser.INSTANCE.data(tempJson, tempArray[1]);
 
         json.k4 = tempJson;
     }
@@ -57,20 +57,27 @@ module.exports = class LevelDataToJson {
     /**
      * @private
      * @since 0.3.0
-     * @version 0.1.0
+     * @version 0.2.0
      * @method color
      * @param {Object} tempJson
      * @param {Object} tempArray
      */
     color(tempJson, tempArray) {
         let tempValue;
+        let colorID = "";
         if (tempArray[1][0]) {
             tempJson.Colors = {};
             for (let i in tempArray[1]) {
                 tempValue = tempArray[1][i].split("_");
-                tempJson.Colors[`Color${tempValue[15]}`] = {};
+                for (let i = 0; i < tempValue.length; i += 2) {
+                    if (tempValue[i] == 6) {
+                        colorID = `Color${tempValue[i + 1]}`;
+                        break;
+                    }
+                }
+                tempJson.Colors[colorID] = {};
                 for (let j = 0; j < tempValue.length; j += 2) {
-                    tempJson.Colors[`Color${tempValue[15]}`][tempValue[j]] = tempValue[j + 1];
+                    tempJson.Colors[colorID][tempValue[j]] = tempValue[j + 1];
                 }
             }
         }
@@ -88,9 +95,9 @@ module.exports = class LevelDataToJson {
         if (tempArray) {
             tempArray = tempArray.substring(0, tempArray.length - 1).split(";");
             tempArray[0] = tempArray[0].split(",");
-            LevelDataToJson.INSTANCE.jsonPush(tempJson, tempArray[0], 0, true);
-            LevelDataToJson.INSTANCE.kA14(tempJson);
-            LevelDataToJson.INSTANCE.objects(tempJson, tempArray);
+            LevelDataParser.INSTANCE.jsonPush(tempJson, tempArray[0], 0, true);
+            LevelDataParser.INSTANCE.kA14(tempJson);
+            LevelDataParser.INSTANCE.objects(tempJson, tempArray);
         }
     }
 
@@ -116,7 +123,7 @@ module.exports = class LevelDataToJson {
     objects(tempJson, tempArray) {
         tempJson.Objects = [];
         tempArray.shift();
-        LevelDataToJson.INSTANCE.jsonPush(tempJson.Objects, tempArray, 0, false);
+        LevelDataParser.INSTANCE.jsonPush(tempJson.Objects, tempArray, 0, false);
     }
 
     /**

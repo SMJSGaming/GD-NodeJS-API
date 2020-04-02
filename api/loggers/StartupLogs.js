@@ -29,7 +29,7 @@ module.exports = class StartupLogs {
      * @async
      * @public
      * @since 0.3.0
-     * @version 0.1.0
+     * @version 0.2.0
      * @method init
      * @summary The base analytics constructor service
      * @description The constructing method converting the navigation HTML blocks to the full navigation
@@ -40,7 +40,7 @@ module.exports = class StartupLogs {
         
         console.log(`\x1b[34mApp started at ${globalData.startDate}\x1b[0m`);
         if (globalData.config.settings.expressWebServer) {
-            console.log(`\x1b[32mserver address: http://localhost:${globalData.config.values.webServer.port}\x1b[0m`);
+            console.log(`\x1b[32mServer address: http://localhost:${globalData.config.values.webServer.port}\x1b[0m`);
         }
         console.log(`\x1b[33mModules loaded:\n${JSON.stringify(this.dependencies, null, 2)}\x1b[0m`);
 

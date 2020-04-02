@@ -14,11 +14,17 @@
             "enableValueNamesEndpoint": true,
             "enableAnalyticsEndpoint": true
         },
-        "expressWebServer": true
+        "expressWebServer": true,
+        "discordBot": true
     },
     "values": {
         "webServer": {
             "port": 80
+        },
+        "discord": {
+            "token": "",
+            "prefix": "gd?",
+            "color": "#202225"
         },
         "analytics": {
             "refreshRateMs": 10000,

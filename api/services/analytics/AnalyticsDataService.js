@@ -94,7 +94,7 @@ module.exports = class AnalyticsDataService {
     }
 
     /**
-     * @private
+     * @public
      * @since 0.3.0
      * @version 0.1.0
      * @method calculateHealth

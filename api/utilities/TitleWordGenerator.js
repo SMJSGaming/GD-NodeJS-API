@@ -2,14 +2,14 @@
  * @class
  * @public
  * @author SMJS
- * @name LowerCaseWordToTitleWord
- * @typedef {Object} LowerCaseWordToTitleWord
+ * @name TitleWordGenerator
+ * @typedef {Object} TitleWordGenerator
  */
-module.exports = class LowerCaseWordToTitleWord {
+module.exports = class TitleWordGenerator {
 
     /**
      * @private
-     * @type {LowerCaseWordToTitleWord}
+     * @type {TitleWordGenerator}
      * @name INSTANCE
      */
     static INSTANCE;
@@ -19,24 +19,24 @@ module.exports = class LowerCaseWordToTitleWord {
      * @since 0.3.0
      * @version 0.1.0
      * @method constructor
-     * @summary The class constructor @see LowerCaseWordToTitleWord
+     * @summary The class constructor @see TitleWordGenerator
      */
     constructor() {
-        if (!LowerCaseWordToTitleWord.INSTANCE) {
-            LowerCaseWordToTitleWord.INSTANCE = this;
+        if (!TitleWordGenerator.INSTANCE) {
+            TitleWordGenerator.INSTANCE = this;
         }
-        return LowerCaseWordToTitleWord.INSTANCE;
+        return TitleWordGenerator.INSTANCE;
     }
 
     /**
      * @public
      * @since 0.3.0
      * @version 0.1.0
-     * @method converter
+     * @method utility
      * @param {String} word
      * @returns {String}
      */
-    converter(word) {
+    utility(word) {
         return word.replace(/^\w/, c => c.toUpperCase()).replace(".md", "");
     }
 }

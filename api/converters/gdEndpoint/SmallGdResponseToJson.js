@@ -38,9 +38,9 @@ module.exports = class SmallGdResponseToJson {
     /**
      * @private
      * @type {Object}
-     * @name LowerCaseWordToTitleWord
+     * @name TitleWordGenerator
      */
-    LowerCaseWordToTitleWord = new (require("../../converters/LowerCaseWordToTitleWord"));
+    TitleWordGenerator = new (require("../../utilities/TitleWordGenerator"));
     
     /**
      * @public
@@ -104,7 +104,7 @@ module.exports = class SmallGdResponseToJson {
      */
     type2(valueForName, data, type, output, dar) {
         let temp = [];
-        const title = SmallGdResponseToJson.INSTANCE.LowerCaseWordToTitleWord.converter;
+        const title = SmallGdResponseToJson.INSTANCE.TitleWordGenerator.utility;
 
         dar = data.split(":");
         for (let i = 0; i < dar.length; i++) {

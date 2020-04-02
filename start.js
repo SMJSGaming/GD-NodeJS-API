@@ -26,6 +26,8 @@ const StartupLogs = new (require("./api/loggers/StartupLogs"));
  */
 const WebAppStart = require("./WebAppStart");
 
+const DiscordBotStart = require("./DiscordBotStart");
+
 /**
  * @public
  * @type {Object}
@@ -103,6 +105,10 @@ const OpenLoop = new (require("./api/background/OpenLoop"))(globalData);
  */
 const args = process.argv
 
+const generators = {
+    generatehelpdata: new (require("./generators/GenerateHelpData"))
+};
+
 /**
  * @public
  * @since 0.3.0
@@ -127,6 +133,9 @@ function run() {
     if (configData.settings.expressWebServer) {
         (new WebAppStart).init(globalData);
     }
+    if (configData.settings.discordBot) {
+        (new DiscordBotStart).init(globalData);
+    }
 }
 
 /**
@@ -141,8 +150,26 @@ function test() {
 
 }
 
-if (!args[2] || args[2] == "run") {
-    run();
+function generate() {
+    if (args[3]) {
+        for (let i = 3; args[i]; i++) {
+            if (generators[args[i]]) {
+                generators[args[i].toLowerCase()].generate();
+            } else {
+                console.log(`\x1b[31mThe generator: "${generators[args[i]]}" does not exist.\x1b[0m`);
+            }
+        }
+    } else {
+        Object.keys(generators).forEach((key) => {
+            generators[key].generate();
+        });
+    }
+}
+
+if (args[2] == "generate") {
+    generate();
 } else if (args[2] == "test") {
     test();
+} else {
+    run();
 }

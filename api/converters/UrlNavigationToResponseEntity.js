@@ -29,9 +29,16 @@ module.exports = class UrlNavigationToResponseEntity {
     }
 
     /**
+     * @private
+     * @type {Object}
+     * @name CaseInsensitiveKeyFind
+     */
+    CaseInsensitiveKeyFind = new (require("../utilities/CaseInsensitiveKeyFind"));
+
+    /**
      * @public
      * @since 0.3.0
-     * @version 0.1.0
+     * @version 0.2.0
      * @method converter
      * @param {String[]} params
      * @param {Object} output
@@ -41,7 +48,9 @@ module.exports = class UrlNavigationToResponseEntity {
         let objectCheck = {};
         if (params) {
             params.forEach((param) => {
-                objectCheck = UrlNavigationToResponseEntity.INSTANCE.caseInsensitiveKeyFind(param, output);
+                objectCheck = UrlNavigationToResponseEntity.INSTANCE
+                                                            .CaseInsensitiveKeyFind
+                                                            .utility(param, output)[0];
                 if (objectCheck) {
                     output = objectCheck;
                 } else {
@@ -52,18 +61,5 @@ module.exports = class UrlNavigationToResponseEntity {
             });
         }
         return [200, output];
-    }
-
-    /**
-     * @private
-     * @since 0.3.0
-     * @version 0.1.0
-     * @method converter
-     * @param {String} key
-     * @param {Object} object
-     * @returns {Object}
-     */
-    caseInsensitiveKeyFind(key, object) {
-        return object[Object.keys(object).find(keySearch => keySearch.toLowerCase() == key.toLowerCase())];
     }
 }

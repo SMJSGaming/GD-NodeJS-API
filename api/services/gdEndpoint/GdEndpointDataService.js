@@ -36,10 +36,17 @@ module.exports = class GdEndpointDataService {
     BigResponseToJson = new (require("../../converters/gdEndpoint/BigResponseToJson"));
 
     /**
+     * @private
+     * @type {Object}
+     * @name CaseInsensitiveKeyFind
+     */
+    CaseInsensitiveKeyFind = new (require("../../utilities/CaseInsensitiveKeyFind"));
+
+    /**
      * @async
      * @public
      * @since 0.3.0
-     * @version 0.1.0
+     * @version 0.2.0
      * @method service
      * @summary The endpoint data service
      * @description The main service method processing a GD request and calls the response parsers
@@ -58,9 +65,11 @@ module.exports = class GdEndpointDataService {
     service(params, globalData) {
         return new Promise((resolve) => {
             let output = {};
+            const type = this.CaseInsensitiveKeyFind.utility(params[0] || "", this.endpointProperties)[0];
             // Setting valid property or gauntlets since daily requires no params
-            const type = this.endpointProperties[params[0].toLowerCase()] || 
-                this.endpointProperties.daily;
+            if (!type) {
+                resolve([404, Object.keys(this.endpointProperties)]);
+            }
 
             // Checking if too many leaderboards entries are requested and converting a number param to a valid type
             if (params[0] == "leaderboard") {
@@ -122,7 +131,7 @@ module.exports = class GdEndpointDataService {
      * @async
      * @private
      * @since 0.3.0
-     * @version 0.1.0
+     * @version 0.2.0
      * @summary The post request method to extract the GD data
      * @description A request method sending a post request with the data to the GD servers and returning the data
      * @param {String} params The post query
@@ -137,8 +146,8 @@ module.exports = class GdEndpointDataService {
                 path: `/database/${endpoint}`,
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Content-Length': Buffer.byteLength(params)
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Content-Length": Buffer.byteLength(params)
                 }
             };
             const req = this.http.request(options, (res) => {

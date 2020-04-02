@@ -17,9 +17,9 @@ module.exports = class DocumentationIndexService {
     /**
      * @private
      * @type {Object}
-     * @name LowerCaseWordToTitleWord
+     * @name TitleWordGenerator
      */
-    LowerCaseWordToTitleWord = new (require("../../converters/LowerCaseWordToTitleWord"));
+    TitleWordGenerator = new (require("../../utilities/TitleWordGenerator"));
 
     /**
      * @private
@@ -27,13 +27,6 @@ module.exports = class DocumentationIndexService {
      * @name UrlToRoute
      */
     UrlToRoute = new (require("../../converters/documentation/ParamsToRoute"));
-
-    /**
-     * @private
-     * @type {Object}
-     * @name DocumentationDataService
-     */
-    DocumentationDataService = new (require("./DocumentationDataService"));
 
     /**
      * @private
@@ -142,9 +135,9 @@ module.exports = class DocumentationIndexService {
         let out = "";
 
         if (names[1] == "index.md") {
-            out = this.title.replace("%CONTENT%", this.LowerCaseWordToTitleWord.converter(names[0]));
+            out = this.title.replace("%CONTENT%", this.TitleWordGenerator.utility(names[0]));
         } else {
-            out = this.topic.replace("%CONTENT%", this.LowerCaseWordToTitleWord.converter(names[1]));
+            out = this.topic.replace("%CONTENT%", this.TitleWordGenerator.utility(names[1]));
         }
         if (JSON.stringify(names) == JSON.stringify(fileToRead)) {
             out = out.replace("%HIGH%", "highlight");

@@ -38,9 +38,9 @@ module.exports = class EncodedLevelSaveParametersToJson {
     /**
      * @private
      * @type {Object}
-     * @name LevelDataToJson
+     * @name LevelDataParser
      */
-    LevelDataToJson = new (require("../level/LevelDataToJson"));
+    LevelDataParser = new (require("../../utilities/level/LevelDataParser"));
 
     /**
      * @public
@@ -66,7 +66,7 @@ module.exports = class EncodedLevelSaveParametersToJson {
         if (level.k4) {
             if (level.k4.startsWith("H4sIAAAAAAAA")) {
                 try {
-                    EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(
+                    EncodedLevelSaveParametersToJson.INSTANCE.LevelDataParser.converter(
                         level, EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.gzUnzip(
                             EncodedLevelSaveParametersToJson.INSTANCE.MainCrypto.base64(level.k4)).toString());
                 } catch(error) {
@@ -74,7 +74,7 @@ module.exports = class EncodedLevelSaveParametersToJson {
                     throw error;
                 }
             } else {
-                EncodedLevelSaveParametersToJson.INSTANCE.LevelDataToJson.converter(level, level.k4);
+                EncodedLevelSaveParametersToJson.INSTANCE.LevelDataParser.converter(level, level.k4);
             }
         }
     }
